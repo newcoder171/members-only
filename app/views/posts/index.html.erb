@@ -6,27 +6,32 @@
 </div>
 
 <br>
-
-<div class="album text-muted">
-   <div class="container">
-      <div class="row">
-      
-         <% @posts.each do |post| %>
-          <div class="card mt-2 mr-2" style="width: 18rem; height: 10rem">
-            <div class="card-body">
-              <h5 class="card-title"><%= post.title %></h5>
-              
-              
-              <p class="card-text"><%= post.content %></p>
-              <% if @user %>
-                  <small class="card-subtitle mb-2 text-muted">Written by : <%= post.user.name %></small>
-              <% end %>
+<% if @posts.length > 0 %>
+  <div class="album text-muted">
+    <div class="container">
+        <div class="row">
+        
+          <% @posts.each do |post| %>
+            <div class="card mt-2 mr-2" style="width: 18rem; height: 10rem">
+              <div class="card-body">
+                <h5 class="card-title"><%= post.title %></h5>
+                
+                
+                <p class="card-text"><%= post.content %></p>
+                <% if @user %>
+                    <small class="card-subtitle mb-2 text-muted">Written by : <%= post.user.name %></small>
+                <% end %>
+              </div>
             </div>
-          </div>
-         <% end %>
-         
-      </div>
-   </div>
-</div>
+          <% end %>
+          
+        </div>
+    </div>
+  </div>
+<% else %>
+  <div class="alert alert-dark" role="alert">
+    There are currently no posts!
+  </div>
+<% end %>
 
 
