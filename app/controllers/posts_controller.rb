@@ -26,9 +26,10 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    p current_user
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    # p current_user
+    # @post = Post.new(post_params)
+    # @post.user_id = current_user.id
+    @post = current_user.post.build(post_params)
 
     
     if @post.save
